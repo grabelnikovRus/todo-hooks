@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "eslint-config-prettier",
+    "prettier/react"
+  ],
+  "plugins": ["react", "react-hooks"],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "react-hooks/rules-of-hooks": "error", // Проверяем правила хуков
+    "react-hooks/exhaustive-deps": "warn", // Проверяем зависимости эффекта
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "curly": ["error"],
+    "max-depth": ["warn", 4],
+    "id-length": ["warn", { "exceptions": ["i", "j"], "min": 2 }],
+    "no-lonely-if": ["error"],
+    "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
+    "no-restricted-syntax": "off",
+    "no-debugger": "warn",
+    "no-console": "warn",
+    "class-methods-use-this": "off",
+    "jsx-a11y/href-no-hash": ["off"],
+    "jsx-a11y/anchor-is-valid": ["off"],
+    "jsx-a11y/no-autofocus": ["off"],
+    "jsx-a11y/label-has-associated-control": [ "error", {
+      "assert": "either"
+    }],
+    "react/state-in-constructor": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/static-property-placement": "off"
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  }
+}
