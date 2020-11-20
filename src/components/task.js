@@ -12,7 +12,7 @@ const Task = (props) => {
   useEffect(() => {
       let timer = setInterval(() => setDateCreate(formatDistanceToNow(date, { includeSeconds: true })), 2000);
       return () => clearInterval(timer);
-    });
+  });
 
   const onChangeInp = (id, event) => {
     if (event.key === "Enter") {
@@ -40,7 +40,7 @@ const Task = (props) => {
         <input className="toggle" type="checkbox" onChange={() => onCompletedTask(id)} checked={completed} />
         <label>
           <span className="title">{name}</span>
-          <Clock name={name} />
+          {!completed && <Clock name={name} />}
           <span className="created">{dateCreate}</span>
         </label>
         {!completed && (
