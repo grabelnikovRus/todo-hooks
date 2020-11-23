@@ -29,10 +29,10 @@ const Task = (props) => {
 
   const onPlay = () => {
     if (isPlay) return;
-    const value = localStorage.getItem(name);
+    const value = localStorage.getItem(id);
     if (value) {
       let [min, sec] = value.split(':');
-      localStorage.removeItem(name);
+      localStorage.removeItem(id);
       setTimePlay(new Date() - (Number(min) * 60 + Number(sec)) * 1000)
     } else {
       setTimePlay(new Date());
@@ -43,7 +43,7 @@ const Task = (props) => {
   const onPause = () => {
     if (!isPlay) return;
     setIsPlay(false);
-    localStorage.setItem(name, `${time}`);
+    localStorage.setItem(id, `${time}`);
   }
 
   const getConversionTime = () => {
@@ -59,12 +59,16 @@ const Task = (props) => {
   }
 
   if (editing) {
+    onPause();
+
     return (
       <li className="editing">
         <input type="text" className="edit" defaultValue={name} onKeyDown={(event) => onChangeInp(id, event)} />
       </li>
     );
   }
+
+  if (completed) onPause();
 
   const className = completed ? 'completed' : 'active';
 

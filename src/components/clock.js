@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 const Clock = ({ time, timePlay, isPlay, getConversionTime, onPlay, onPause }) => {
   
-
   useEffect(() => {
       let timer;
       if (isPlay) timer  = setTimeout(getConversionTime, 1000);
       return () => clearInterval(timer)
     },
-    [timePlay, time, isPlay ]
+    [timePlay, time, isPlay, getConversionTime ]
   )
-
-
 
   return (
     <span>
